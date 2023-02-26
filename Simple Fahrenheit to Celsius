@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset = "UTF-8" />
+    <title>What is this about </title>
+    
+  </head>
+
+  <body>
+    <script>
+      var fahrenheit, celcius;
+      fahrenheit = Number(prompt("Enter degrees Fahrenheit: "));
+      celcius = (fahrenheit - 32) * 5 / 9;
+      alert ("Degrees Celcius = " + celcius);
+    </script>
+  </body>
+
+
+</html>
