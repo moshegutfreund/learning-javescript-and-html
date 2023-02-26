@@ -1,0 +1,183 @@
+
+<!doctype html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title> Insurance Price Calculator!</title>
+		<style>
+	      body {background-color: navy; font-family: optima;
+	                color:rgb(255, 255, 255); text-align: left}
+          button {font-size: 15px; background-color: rgb(255, 255, 255);}
+          p {font-size:25px};
+        
+	   </style>
+	</head>
+    <script>
+
+var OriginalPrice = 1000
+var dicsount = 0.03
+var totalPrice;
+</script>	
+<body>
+    <h1>Insurance Processing</h1>
+    <P>Inputs Data</p>
+
+    
+       Insurance Type:<input type = "radio" name = "category" id = "auto" value = "auto"
+        onclick = "
+            ownBox.value = 'N/A';
+            floodBox.value = 'N/A';
+            deductBox.value = '';
+            totalPrice = + OriginalPrice.toFixed(2);"	/>Auto
+        <input type = "radio" name = "category" id = "home" value = "home"
+        onclick = "
+            deductBox.value = 'N/A';
+            ownBox.value = '';
+            floodBox.value = '';
+            totalPrice =  + price.toFixed(2);"	/>Home
+
+<table>
+
+    <tr>
+        <th>Insurance Data</th>
+        <th>Answer</th>
+    </tr>
+    <tr>
+    <td>Home OwnerShip: (O)wn/(R)ent? </td>
+    <td> <input type = "text" id = "ownBox" value = "" size= "6"  /></td>
+</tr>
+
+<tr>
+    <td>Flood Insurance:(Y)es/(N)O</td>
+    <td><input type = "text" id = "floodBox" value = "" size= "6"  /></td>
+</tr>
+
+<tr>
+    <td>No Deductible: (Y)es/(N)o</td>
+    <td><input type = "text" id = "deductBox" value = "" size= "6"  /></td>
+</tr>
+
+<tr>
+
+    <td>Payment Type: (S)ingle/(M)onthly</td>
+    <td><input type = "text" id = "payTypebox" value = "" size= "6"  /></td>
+</tr>
+</table>
+
+<script>
+
+var testingVariable
+var price=1000
+var addOn
+var base;
+
+ function work() {
+    
+    if (ownBox.value== "N/A") {
+        box3.value = totalPrice;
+        base= 1000;
+
+    }
+        else if (ownBox.value== "O" || ownBox.value== "Own") {
+            box3.value = + (price+1000).toFixed(2);
+            base=2000
+        
+        }
+        else if (ownBox.value== "R" || ownBox.value== "Rent") {
+            box3.value =  + (price-500).toFixed(2);
+            base=500
+     
+        }
+    }
+    function optional() {
+    if (floodBox.value== "N" || floodBox.value== "No") {
+
+        box4.value = + (0).toFixed(2);
+        addOn =0;
+    }
+
+    else if (floodBox.value== "Y" || floodBox.value== "Yes") {
+        box4.value =  + (300).toFixed(2);
+         addOn=300;
+    }
+    else if (floodBox.value== "N/A") {
+    }
+        if (deductBox.value== "Y" || deductBox.value== "Yes"){
+            box4.value =400;
+             addOn=400;
+        }
+            else if (deductBox.value== "N" || deductBox.value== "No") {
+                box4.value = 0;
+                addOn=0;
+            }
+        }
+function combine (){
+
+      var discountPerc =0.03;
+    if (payTypebox.value== "S" || payTypebox.value== "Single" ){
+       
+        var preDiscounttotal= addOn+base;
+        box5.value= (preDiscounttotal*discountPerc) }
+          else if(payTypebox.value== "M" || payTypebox.value== "Monthly" ){
+            var preDiscounttotal= addOn+base;
+          box5.value= (0)
+          }
+   
+
+    box6.value = "$"+(preDiscounttotal- box5.value).toFixed(2);
+console.log ( preDiscounttotal, box6.value)      
+}
+    
+
+</script>
+ <button id = "process" onclick="work(); optional(); combine();" >Process</button>
+ <button id = "clear" onclick= "auto.checked=false;
+ home.checked=false;
+ box3.value =0;
+ box4.value =0;
+ box5.value =0;
+ box6.value =0;
+ ownBox.value ='';
+ floodBox.value= '';
+ deductBox.value= '';
+ payTypebox.value= '';
+
+"  >Clear </button>
+ 
+ <h2><b>Outputs</b></h2>
+ 
+ 
+ 
+
+ <br>
+
+<table>
+    <tr>
+        <th>Item</th>
+        <th>Price</th>
+    </tr>
+
+<tr>
+    <td> Total Price </td>
+    <td><input style type = "text" id = "box3" value = "" size= "6"  readonly/></td>
+</tr>
+
+<tr>
+    <td>Total Optional Items</td>
+    <td><input style type = "text" id = "box4" value = "" size= "6"  readonly/></td>    
+</tr>
+
+ <tr>
+     <td>Total Discount </td>
+    <td> <input style type = "text" id = "box5" value = "" size= "6"  readonly/> </td>
+</tr>
+
+<tr>
+    <td>Total Amount</td> 
+    <td><input style type = "" id = "box6" value = "" size= "6"  readonly/></td>
+</tr>
+
+</table>
+  <p><h3>Thanks for Shopping</h3></p>
+ </body>
+ <html>
